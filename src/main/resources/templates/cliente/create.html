@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" 
+    th:replace="~{fragments/layout :: layout (~{::body},'client')}">
+
+<body>
+ 
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="col-sm-12 mt-5">
+            <center><div class="col-12">
+              <h1>Registrarse</h1>
+            </div></center>
+            <CEnter><div class="col-12">
+              <p>&nbsp;</p>         
+            </div></CEnter>
+            <center><form th:object="${client}" th:action="@{/cliente/create}" method="post">
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="firstName">Nombres</label>
+                </div>
+                <div class="col-sm-2">
+                  <input type="text" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="lastName">DNI</label>
+                </div>
+                <div class="col-sm-2">
+                  <input type="text"  />
+                </div>
+              </div>              
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">                  
+                  <label for="email">Email</label>
+                </div>
+                <div class="col-sm-2">
+                  <input type="text" data-inputmask="'alias': 'email'"
+                  autocomplete="off"  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="phone">Teléfono</label>
+                </div>
+                <div class="col-sm-2">
+                  <input type="text" data-inputmask="'mask': '(999) 999-9999'"  />
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="maritalStatus">Dirección</label>
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" />
+                  </div>                
+              </div>                          
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="user.userID">Usuario</label>
+                </div>
+                <div class="col-sm-2">
+                  <input type="text"  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="user.password">Contraseña</label>
+                </div>
+                <div class="col-sm-2">
+                  <input type="password"  />
+                </div>
+              </div>              
+              <div class="form-group row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-2">
+                  <button th:with="text='Registrar'" class="btn btn-warning btn-lg" type="submit" th:text="${text}"/>
+                </div>
+              </div>
+            </form></center>
+            <p th:text="${mensaje}" />
+          </div>
+        </div>
+      </div>
+    
+      <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+      <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+      <script th:src="@{/webjars/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
+      <script th:src="@{/webjars/jquery.inputmask/jquery.inputmask.min.js}"></script>    
+  
+      <script>
+        $('.input-group.date').datepicker({
+          autoclose: true,
+          todayHighlight: true
+        });
+      </script>
+      <script>
+        $(":input").inputmask();
+      </script>
+</body>
+
+</html>
