@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'catalogo')}">
+
+<head>
+  <title>Catalogo</title>
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css} " />
+  <link th:rel="stylesheet" th:type="text/css" th:href="estilos.css" />
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+  <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+
+<body>
+  <form class="form-inline" th:action="@{/catalogo/index}" method="get">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchName">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  </form>
+  <div class="container">
+    <p th:text="${mensaje}" />
+    <div class="row">
+      <div class="col">
+        <div id="products" class="mb-3">
+          <div class="row">
+            <div th:each="producto : ${productos}" class="col-sm-4">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="card-img-actions">
+                    <center><img class="img-responsive" alt="${producto.nombre}"  width="110" height="150"
+                      src=" ../../static/catalogo/${producto.image} "
+                      th:src="@{'../../catalogo/'+${producto.image}}" /></center>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <center><h5 class="card-title" th:text="${producto.nombre}">Producto</h5></center>
+                  <center><p class="card-text" th:text="${producto.precio}">Precio</p></center>
+                  <center><a th:href="@{'/catalogo/add/__${producto.id}__'}" 
+                      class="btn btn-warning" role="button">Añadir</a></center>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
