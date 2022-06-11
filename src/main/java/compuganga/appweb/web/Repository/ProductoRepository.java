@@ -15,6 +15,6 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer>{
 
     List<Producto> getAllActiveProductos();
 
-    @Query(value = "SELECT o FROM Producto o WHERE o.descripcion LIKE  %:searchName% And o.status='A'")
+    @Query(value = "SELECT o FROM Producto o WHERE o.nombre LIKE  %:searchName% And o.status='A'")
     List<Producto> getAllActiveProductosBySearch(@Param("searchName") String searchName);
 }
