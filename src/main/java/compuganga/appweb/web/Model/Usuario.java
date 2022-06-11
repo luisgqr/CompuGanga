@@ -1,13 +1,26 @@
 package compuganga.appweb.web.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import java.io.Serializable;
+import javax.persistence.Column;
+
 import lombok.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "t_user")
 
-public class Usuario {
-    String userId;
-    String contraseña;
-    String tipo;
+public class Usuario implements Serializable{
+    @Id
+    @Column(name = "user_id")
+    String userID;
+    String password;
+    String tipoUsuario;
    
 }

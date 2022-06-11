@@ -1,6 +1,8 @@
 package compuganga.appweb.web.Model;
 
 import java.math.BigDecimal;
+import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -8,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-import lombok.*;
+import  lombok.*;
 
 @Getter
 @Setter
@@ -16,15 +18,16 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "t_product")
+@Table(name = "t_order")
 
-public class Producto {
+public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String nombre;
-    String marca;
-    BigDecimal precio;
-    String image;
-    String status;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    Date orderDate; 
+    Integer clienteId;
+    BigDecimal montoTotal;
+    
 }
+
