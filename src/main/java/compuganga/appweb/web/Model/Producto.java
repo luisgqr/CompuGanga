@@ -23,7 +23,7 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String nombre;
-    String marca;
+    String marca; //categoria
     BigDecimal precio;
     String image;
     String status;
