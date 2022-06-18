@@ -47,11 +47,11 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <th:block th:if="${session.user==null}">
-              <li class="nav-item"><a class="nav-link" href="/cliente/create"><span class="glyphicon glyphicon-user"></span>Registrar</a></li>
-              <li class="nav-item"><a class="nav-link text-success" href="/usuario/login"><span class="glyphicon glyphicon-log-in"></span>Ingresar</a></li>
+              <li class="nav-item" style="border: 1px solid; border-radius: 5px;border-color:darkgrey;"><a class="nav-link" href="/cliente/create"><span class="glyphicon glyphicon-user"></span>Registrar</a></li>
+              <li class="nav-item" style="border: solid;border-color:gold;  background-color: gold;border-radius: 5px;"><a class="nav-link text-success" href="/usuario/login"><span class="glyphicon glyphicon-log-in"></span>Ingresar</a></li>
             </th:block>   
             <th:block th:if="${session.user!=null}">
-              <li><a href=""><span class="glyphicon glyphicon-log-in"></span>Salir</a></li>
+              <li style="border: 4px solid;border-color:#007bff; padding: 6px;"><a href="/usuario/logout"><span class="glyphicon glyphicon-log-in"></span>Salir</a></li>
             </th:block>                       
           </ul>     
         </div>
@@ -70,6 +70,7 @@
             </div>
           </div>
         </div>
+      </div>
     
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
