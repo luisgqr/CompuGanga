@@ -21,10 +21,10 @@ import lombok.*;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String nombre;
-    String marca; //categoria
-    BigDecimal precio;
-    String image;
-    String status;
+    private Integer id;
+    private String nombre;
+    private String marca; //categoria
+    private BigDecimal precio;
+    private String image;
+    private String status;
 }

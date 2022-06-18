@@ -24,13 +24,13 @@ import lombok.*;
 public class DetallePedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "producto_id")    
-    Producto product;
+    private Producto product;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")    
-    Pedido pedido;
-    BigDecimal precio;
-    Integer cantidad;
+    private Pedido pedido;
+    private BigDecimal precio;
+    private Integer cantidad;
 }

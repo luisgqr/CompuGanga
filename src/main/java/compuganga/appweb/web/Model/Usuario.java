@@ -19,8 +19,8 @@ import lombok.*;
 public class Usuario implements Serializable{
     @Id
     @Column(name = "user_id")
-    String userID;
-    String password;
-    String tipoUsuario;
+    private String userID;
+    private String password;
+    private String tipoUsuario;
    
 }

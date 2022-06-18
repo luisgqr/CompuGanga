@@ -24,16 +24,16 @@ import  lombok.*;
 public class Proforma {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "producto_id")    
-    Producto product;
+    private Producto product;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
    
-    Usuario user;
-    BigDecimal precio;
-    Integer cantidad;
+    private Usuario user;
+    private BigDecimal precio;
+    private Integer cantidad;
     @Builder.Default
-    String status="PENDING"; 
+    private String status="PENDING"; 
 }

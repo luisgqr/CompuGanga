@@ -19,10 +19,10 @@ import lombok.*;
 public class Proveedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String nombre;
-    String DNI;
-    String correo;
-    String direccion;
-    String telefono;
+    private Integer id;
+    private String nombre;
+    private String DNI;
+    private String correo;
+    private String direccion;
+    private String telefono;
 }

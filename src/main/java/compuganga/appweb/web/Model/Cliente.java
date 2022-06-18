@@ -22,13 +22,13 @@ import lombok.*;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String nombre;
-    String DNI;
-    String correo;
-    String telefono;
-    String direccion;
+    private Integer id;
+    private String nombre;
+    private String DNI;
+    private String correo;
+    private String telefono;
+    private String direccion;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    Usuario user;
+    private Usuario user;
 }

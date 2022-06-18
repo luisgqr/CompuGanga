@@ -23,11 +23,11 @@ import  lombok.*;
 public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    Date orderDate; 
-    Integer clienteId;
-    BigDecimal montoTotal;
+    private Date orderDate; 
+    private Integer clienteId;
+    private BigDecimal montoTotal;
     
 }
 

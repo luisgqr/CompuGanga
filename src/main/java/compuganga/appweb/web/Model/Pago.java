@@ -24,16 +24,16 @@ import lombok.*;
 public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    Date paymentDate; 
-    String nombreTarjeta;
-    String numeroTarjeta;
+    private Date paymentDate; 
+    private String nombreTarjeta;
+    private String numeroTarjeta;
     @Transient
-    String dueDateYYMM;
+    private String dueDateYYMM;
     @Transient
-    String cvv;
-    BigDecimal montoTotal;
-    Integer clienteId;
+    private String cvv;
+    private BigDecimal montoTotal;
+    private Integer clienteId;
     
 }
