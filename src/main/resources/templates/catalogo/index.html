@@ -19,14 +19,14 @@
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchName">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
   </form>
-  <div class="container">
+  <div class="container-fluid">
     <p th:text="${mensaje}" />
     <div class="row">
       <div class="col">
-        <div id="products" class="mb-4">
+        <div id="products" class="mb-3">
           <div class="row">
-            <div th:each="producto : ${productos}" class="col-sm-4">
-              <div class="card mb-3">
+            <div th:each="producto : ${productos}" class="col-sm-3">
+              <div class="card mb-3" style="width: 16rem; height: 30rem;">
                 <div class="card-body">
                   <div class="card-img-actions">
                     <center><img class="img-responsive" alt="${producto.nombre}"  width="100%" height="200"
@@ -35,7 +35,7 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <center><h5 class="card-title" th:text="${producto.nombre}">Producto</h5></center>
+                  <center><h5 class="card-title-responsive" th:text="${producto.nombre}">Producto</h5></center>
                   <center><p class="card-text" th:text="${producto.precio}">Precio</p></center>
                   <center><a th:href="@{'/catalogo/add/__${producto.id}__'}" 
                       class="btn btn-warning" role="button">Añadir</a></center>
