@@ -1,15 +1,60 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
-th:replace="~{fragments/layout :: layout (~{::body},'inicio')}">
+>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CompuGanga</title>
-  <link rel="stylesheet" href="../static/estilos/estilo.css">
+  <link rel="stylesheet" href="/estilos/estilo.css">
+  <!--<link th:rel="stylesheet" th:href="@{/estilos/estilo.css}">
+  th:replace="~{fragments/layout :: layout (~{::body},'inicio')}"-->
 </head>
+<header>
+			
+  <nav class="navegacion">
+    <ul class="menu">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/catalogo/index">Periféricos</a></li>
+      <li><a href="#">Componentes</a>
+        <ul class="submenu">
+          <li><a href="#">Procesador</a></li>
+          <li><a href="#">Tarjeta de Video</a></li>
+          <li><a href="#">Memoria RAM</a></li>
+          <li><a href="#">Placa Madre</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Contactanos</a></li>
+    </ul>
+  </nav>
+
+</header>
 <body>
-    <img class="img-responsive" src="../static/images/imagen2.jpg" th:src="@{/images/imagen2.jpg}" width="100%" height="100%">
+  <table border="0" width="83%">
+    <tr>
+      <td rowspan="2">
+        <div class="slider">
+          <ul>
+            <li><img src="../images/slider1.jpg"></li>
+            <li><img src="../images/slider2.jpg"></li>
+            <li><img src="../images/slider3.jpg"></li>
+            <li><img src="../images/slider4.jpg"></li>
+            <li><img src="../images/slider5.jpg"></li>
+            <li><img src="../images/slider6.jpg"></li>
+          </ul>
+        </div>	
+      </td>
+      <td class="image">
+        <img src="../images/ofer1.jpg">
+      </td>
+    </tr>
+    <tr>
+      <td class="image">
+        <img src="../images/ofer2.jpg">
+      </td>	
+    <tr>
+  </table>
+    <!--<img class="img-responsive" src="../static/images/imagen2.jpg" th:src="@{/images/imagen2.jpg}" width="100%" height="100%">
     <CEnter><div class="col-8">       
         <p>&nbsp;</p>       
       </div></CEnter>
@@ -20,7 +65,7 @@ th:replace="~{fragments/layout :: layout (~{::body},'inicio')}">
                las distintas piezas de computadoras fabricados con la máxima calidad y garantía, ayudandote a conseguir los recursos que necesites.</p></center>
             </div>
         </div>
-    </div>
+    </div>-->
 
 </body>
 </html>

@@ -1,3 +1,128 @@
+.slider {
+	width: 100%;
+	height: 110%;
+	margin: auto;
+	overflow: hidden;
+	border-radius: 80px;
+}
+
+.slider ul {
+	display: flex;
+	padding: 0;
+	width: 600%;
+
+	animation: cambio 30s infinite alternate;
+	animation-timing-function: ease-in;
+
+}
+
+.slider li {
+	width: 100%;
+	height: 110%;
+	list-style: none;
+}
+
+.slider img {
+	width: 99%;
+	height: 110%;
+	border-radius: 80px;
+}
+
+@keyframes cambio {
+	0% {margin-left: 0;}
+	13% {margin-left: 0;}
+
+	18% {margin-left: -100%;}
+	30% {margin-left: -100%;}
+
+	35% {margin-left: -200%;}
+	47% {margin-left: -200%;}
+
+	52% {margin-left: -300%;}
+	65% {margin-left: -300%;}
+
+	70% {margin-left: -400%;}
+	82% {margin-left: -400%;}
+
+	87% {margin-left: -500%;}
+	100% {margin-left: -500%;}
+}
+
+.image img{
+	border-radius: 40px;
+	width: 200%;
+}
+
+/* Menu desplegable */
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 body{
-    background: blue;
+	background-image: url(../images/fondo.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: 'Lato', sans-serif;
+}
+
+header{
+	width: 100%;
+}
+
+.navegacion{
+	width: 100%;
+	margin: 30px auto; /*Altura de arriba hacia abajo de separacion del menu desplegable*/
+	/*background: #1687F2;  Color del menú desplegable*/
+	background-image: linear-gradient(60deg, #A916F2, #2EE7F6);
+}
+
+.navegacion ul{
+	list-style: none;
+}
+
+.menu > li{
+	position: relative;
+	display: inline-block;
+}
+
+.menu > li > a{
+	display: block;
+	padding: 15px 50px;  /*altura x anchura del menu desplegable */
+	color: #fff;  /* Color de la letra */
+	font-family: 'Open sans';
+	text-decoration: none;
+}
+
+.menu li a:hover{
+	color: #2EE7F6; /* Color a la letra que cambia */
+	transition: all .3s;
+}
+
+.submenu{
+	position: absolute;
+	background: #8853F3;  /* Color del desplegable */
+	width: 120%;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 1.5s;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.submenu li a{
+	display: block;
+	padding: 15px;
+	color: #fff;
+	font-family: 'Open sans';
+	text-decoration: none;
+}
+
+
+.menu li:hover .submenu{
+	visibility: visible;
+	opacity: 1;
 }
