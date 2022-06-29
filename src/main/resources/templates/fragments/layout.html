@@ -50,6 +50,7 @@
               </li>
       </th:block>
       <li><a href="/contacto/create">Contactanos</a></li>
+      
       <th:block th:if="${session.user==null}">
       <li><a href="/cliente/create">Registrar</a></li>
       <li><a href="/usuario/login">Ingresar</a></li>
@@ -57,6 +58,7 @@
       <th:block th:if="${session.user!=null}">
       <li><a href="/usuario/logout">Salir</a></li>
       </th:block>
+   
     </ul>
   </nav>
 <!--
@@ -100,8 +102,7 @@
     </nav>  
         -->
         <div class="container-fluid">
-          <div class="container xd-container">
-      
+          <!--<div class="container xd-container"> -->   
             <th:block th:include="${template}" />
       
             <div class="container">
@@ -111,7 +112,7 @@
               </div>
             </div>
           </div>
-        </div>
+        <!--</div>-->
       </div>
     
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
