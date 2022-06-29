@@ -27,16 +27,16 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer>{
     @Query(value = "SELECT o FROM Producto o WHERE o.categoria='Memoria RAM'") 
     List<Producto> getAllCategorProductos3();
 
-    //@Query(value = "SELECT o FROM Producto o WHERE o.categoria='Memoria RAM'") 
-    //List<Producto> getAllCategorProductos4();
-    //@Query(value = "SELECT o FROM Producto o WHERE o.categoria='Monitor'") 
-    //List<Producto> getAllCategorProductos5();
-    //@Query(value = "SELECT o FROM Producto o WHERE o.categoria='Teclado'") 
-    //List<Producto> getAllCategorProductos6();
-    //@Query(value = "SELECT o FROM Producto o WHERE o.categoria='Mouse'") 
-    //List<Producto> getAllCategorProductos7();
-    //@Query(value = "SELECT o FROM Producto o WHERE o.categoria='Auricular'") 
-    //List<Producto> getAllCategorProductos8();
+    @Query(value = "SELECT o FROM Producto o WHERE o.categoria='CPU'") 
+    List<Producto> getAllCategorProductos4();
+    @Query(value = "SELECT o FROM Producto o WHERE o.categoria='Monitor'") 
+    List<Producto> getAllCategorProductos5();
+    @Query(value = "SELECT o FROM Producto o WHERE o.categoria='Teclado'") 
+    List<Producto> getAllCategorProductos6();
+    @Query(value = "SELECT o FROM Producto o WHERE o.categoria='Mouse'") 
+    List<Producto> getAllCategorProductos7();
+    @Query(value = "SELECT o FROM Producto o WHERE o.categoria='Auricular'") 
+    List<Producto> getAllCategorProductos8();
 
     
 }

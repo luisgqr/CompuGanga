@@ -49,23 +49,59 @@ public class CatalogoController {
         return INDEX;
     }
     @GetMapping("/Placa/index")
-    public String index2(Model model){
+    public String index1(Model model){
         List<Producto> listProducto = null;      
             listProducto = this.productsData.getAllCategorProductos1();       
         model.addAttribute("productos", listProducto);
         return INDEX;
     }
     @GetMapping("/Tarjeta/index")
-    public String index3(Model model){
+    public String index2(Model model){
         List<Producto> listProducto = null;      
             listProducto = this.productsData.getAllCategorProductos2();       
         model.addAttribute("productos", listProducto);
         return INDEX;
     }
     @GetMapping("/RAM/index")
-    public String index4(Model model){
+    public String index3(Model model){
         List<Producto> listProducto = null;      
             listProducto = this.productsData.getAllCategorProductos3();       
+        model.addAttribute("productos", listProducto);
+        return INDEX;
+    }
+
+    @GetMapping("/CPU/index")
+    public String index4(Model model){
+        List<Producto> listProducto = null;      
+            listProducto = this.productsData.getAllCategorProductos4();       
+        model.addAttribute("productos", listProducto);
+        return INDEX;
+    }
+    @GetMapping("/Monitor/index")
+    public String index5(Model model){
+        List<Producto> listProducto = null;      
+            listProducto = this.productsData.getAllCategorProductos5();       
+        model.addAttribute("productos", listProducto);
+        return INDEX;
+    }
+    @GetMapping("/Teclado/index")
+    public String index6(Model model){
+        List<Producto> listProducto = null;      
+            listProducto = this.productsData.getAllCategorProductos6();       
+        model.addAttribute("productos", listProducto);
+        return INDEX;
+    }
+    @GetMapping("/Mouse/index")
+    public String index7(Model model){
+        List<Producto> listProducto = null;      
+            listProducto = this.productsData.getAllCategorProductos7();       
+        model.addAttribute("productos", listProducto);
+        return INDEX;
+    }
+    @GetMapping("/Auricular/index")
+    public String index8(Model model){
+        List<Producto> listProducto = null;      
+            listProducto = this.productsData.getAllCategorProductos8();       
         model.addAttribute("productos", listProducto);
         return INDEX;
     }
