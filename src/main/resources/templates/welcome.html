@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
->
+th:replace="~{fragments/layout :: layout (~{::body},'inicio')}">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,7 @@
   <!--<link th:rel="stylesheet" th:href="@{/estilos/estilo.css}">
   th:replace="~{fragments/layout :: layout (~{::body},'inicio')}"-->
 </head>
+<!--
 <header>
 			
   <nav class="navegacion">
@@ -37,7 +38,7 @@
     </ul>
   </nav>
 
-</header>
+</header>-->
 <body>
   <table border="0" width="83%">
     <tr>

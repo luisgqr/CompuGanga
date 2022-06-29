@@ -14,10 +14,52 @@
   <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css} " />
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.css}" />
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}" />
+  <link rel="stylesheet" href="/estilos/estilo.css">
 
 </head>
 <body>
 
+  <nav class="navegacion">
+    <ul class="menu">
+      <li><a href="/">CompuGanga</a></li>
+      <li><a href="/catalogo/index">Periféricos</a>
+        <ul class="submenu">
+          <li><a href="/Monitor/index">Monitor</a></li>
+          <li><a href="/Teclado/index">Teclado</a></li>
+          <li><a href="/Mouse/index">Mouse</a></li>
+          <li><a href="/Auricular/index">Auriculares</a></li>
+          <li><a href="/CPU/index">CPU</a></li>
+        </ul></li>
+      <li><a href="/catalogo/index">Componentes</a>
+        <ul class="submenu">
+          <li><a href="/Procesador/index">Procesador</a></li>
+          <li><a href="/Tarjeta/index">Tarjeta de Video</a></li>
+          <li><a href="/RAM/index">Memoria RAM</a></li>
+          <li><a href="/Placa/index">Placa Madre</a></li>
+        </ul>
+      </li>
+      <th:block th:if="${session.user!=null}">  
+              <li>
+                <a href="/producto/index">Producto</a>
+              </li>      
+              <li>
+                <a href="/proforma/index">Carrito</a>
+              </li>  
+              <li>
+                <a href="/pedido/index">Pedido</a>
+              </li>
+      </th:block>
+      <li><a href="/contacto/create">Contactanos</a></li>
+      <th:block th:if="${session.user==null}">
+      <li><a href="/cliente/create">Registrar</a></li>
+      <li><a href="/usuario/login">Ingresar</a></li>
+      </th:block>
+      <th:block th:if="${session.user!=null}">
+      <li><a href="/usuario/logout">Salir</a></li>
+      </th:block>
+    </ul>
+  </nav>
+<!--
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">CompuGanga</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +98,7 @@
           </ul>     
         </div>
     </nav>  
-        
+        -->
         <div class="container-fluid">
           <div class="container xd-container">
       
