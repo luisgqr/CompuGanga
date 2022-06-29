@@ -40,6 +40,36 @@ public class CatalogoController {
         return INDEX;
 
     }
+    //
+    @GetMapping("/Procesador/index")
+    public String index(Model model){
+        List<Producto> listProducto = null;      
+            listProducto = this.productsData.getAllCategorProductos();       
+        model.addAttribute("productos", listProducto);
+        return INDEX;
+    }
+    @GetMapping("/Placa/index")
+    public String index2(Model model){
+        List<Producto> listProducto = null;      
+            listProducto = this.productsData.getAllCategorProductos1();       
+        model.addAttribute("productos", listProducto);
+        return INDEX;
+    }
+    @GetMapping("/Tarjeta/index")
+    public String index3(Model model){
+        List<Producto> listProducto = null;      
+            listProducto = this.productsData.getAllCategorProductos2();       
+        model.addAttribute("productos", listProducto);
+        return INDEX;
+    }
+    @GetMapping("/RAM/index")
+    public String index4(Model model){
+        List<Producto> listProducto = null;      
+            listProducto = this.productsData.getAllCategorProductos3();       
+        model.addAttribute("productos", listProducto);
+        return INDEX;
+    }
+    //
     @GetMapping("/catalogo/add/{id}")
     public String add(@PathVariable("id") Integer id, 
         HttpSession session,
