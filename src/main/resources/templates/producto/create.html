@@ -3,37 +3,31 @@
 <html xmlns:th="https://www.thymeleaf.org" 
     th:replace="~{fragments/layout :: layout (~{::body},'producto')}">
 
-<body>
- 
-    <div class="container">
-
-        <div class="row">
+<body>  
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div  class="col-sm-12 mt-5">
+        <!--<div class="row">
           <div class="col-sm-10 mt-5">
             <div class="form-group row">
               <h1>Producto</h1>
-            </div>
+            </div>-->
+            <div class="h3">Registrar Producto</div>
+            <div class="col-sm-2"></div>
             <form th:object="${producto}" th:action="@{/producto/create}" method="post">
               <div class="form-group row">
-                <div class="col-sm-2">
+                <div class="col-md-6 mt-md-0 mt-3">
                   <label for="nombre">Nombre</label>
+                  <input type="text" class="form-control" required th:field="*{nombre}" />
                 </div>
-                <div class="col-sm-2">
-                  <input type="text" th:field="*{nombre}" />
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-2">
+                <div class="col-md-6 mt-md-0 mt-3">
                   <label for="modelo">Modelo</label>
-                </div>
-                <div class="col-sm-2">
-                  <input type="text" th:field="*{modelo}" />
+                  <input type="text" class="form-control" required th:field="*{modelo}" />
                 </div>
               </div>
               <div class="form-group row">
-                <div class="col-sm-2">
-                  <label for="categoria">Categoria</label>
-                </div>
-                <div class="col-sm-2">
+                <div class="col-md-6 mt-md-0 mt-3">
+                  <label for="categoria">Categoria</label>              
                   <select id="categoria" placeholder="Categoría" autocomplete="off" class="form-control" th:field="*{categoria}" />
                   <option value="-">Ninguno</option>
                     <option value="Monitor">Monitor</option>
@@ -47,13 +41,9 @@
                     <option value="Memoria">Memoria RAM</option>
                   </select>
                 </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-2">
+                <div class="col-md-6 mt-md-0 mt-3">
                   <label for="precio">Precio</label>
-                </div>
-                <div class="col-sm-2">
-                    <input type="text" th:field="*{Precio}" />
+                  <input type="text" class="form-control" required th:field="*{Precio}" />
                 </div>
               </div>
               <!--<div class="form-group row">
@@ -70,21 +60,22 @@
                     </div>
                   </div>
                 </div>
-              </div>-->
+              </div>     <form method="post" enctype="multipart/form-data" target="_blank"></form>-->
+              
               <div class="form-group row">
-                <div class="col-sm-2">
-                  <label for="image">Nombre de archivo</label>
+                <div class="col-md-10 mt-md-0 mt-3">
+                  <label for="image" class="form-label">Imagen</label>                 
+                  <input value="image" id="image" class="form-control" autocomplete="off" type="file" required th:field="*{image}" />
                 </div>
-                <div class="col-sm-2">
-                  <input type="file" th:field="*{image}" />
-                </div>
-              </div>              
+              </div> 
+            
+              <center>           
               <div class="form-group row">
                 <div class="col-sm-2"></div>
-                <div class="col-sm-2">
+                <div class="col-md-6 mt-md-0 mt-3">
                   <button th:with="text='Añadir Producto'" class="btn btn-warning" type="submit" th:text="${text}"/>
                 </div>
-              </div>
+              </div></center> 
             </form>
             <p th:text="${mensaje}" />
           </div>
