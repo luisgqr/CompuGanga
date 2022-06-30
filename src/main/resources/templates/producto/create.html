@@ -34,7 +34,18 @@
                   <label for="categoria">Categoria</label>
                 </div>
                 <div class="col-sm-2">
-                  <input type="text" th:field="*{categoria}" />
+                  <select id="categoria" placeholder="Categoría" autocomplete="off" class="form-control" th:field="*{categoria}" />
+                  <option value="-">Ninguno</option>
+                    <option value="Monitor">Monitor</option>
+                    <option value="Teclado">Teclado</option>
+                    <option value="Mouse">Mouse</option>
+                    <option value="Auricular">Auricular</option>
+                    <option value="CPU">CPU</option>
+                    <option value="Procesador">Procesador</option>
+                    <option value="Placa">Placa Madre</option>
+                    <option value="Tarjeta">Tarjeta de Video</option>
+                    <option value="Memoria">Memoria RAM</option>
+                  </select>
                 </div>
               </div>
               <div class="form-group row">
@@ -65,7 +76,7 @@
                   <label for="image">Nombre de archivo</label>
                 </div>
                 <div class="col-sm-2">
-                  <input type="text" th:field="*{image}" />
+                  <input type="file" th:field="*{image}" />
                 </div>
               </div>              
               <div class="form-group row">
