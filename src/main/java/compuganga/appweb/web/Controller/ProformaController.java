@@ -41,7 +41,7 @@ public class ProformaController {
         return VIEW_INDEX;
     }
     
-    @PostMapping("/proforma/save1")
+    /*@PostMapping("/proforma/save1")
     public String createSubmitForm2(Model model,
     @Valid Proforma objProforma, BindingResult result){
         Proforma prof = proformaData.getOne(objProforma.getId());
@@ -50,7 +50,7 @@ public class ProformaController {
         //model.addAttribute(MODEL_PRODUCTO, objProforma);
         model.addAttribute("mensaje", "Opcion de entrega confirmado");
         return "redirect:/proforma/index";
-    }  
+    }  */
 
     @PostMapping("/proforma/update")
     public String createSubmitForm(Model model, 

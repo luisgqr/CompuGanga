@@ -41,7 +41,9 @@
                 <td th:text="${pedido.orderDate}"></td>
                 <td th:text="${pedido.montoTotal}"></td>
                 <td>
-                  <a href="/factura/index"
+                  <!--<a href="/factura/index"
+                     class="btn btn-info" role="button">Ver</a>-->
+                  <a th:href="@{'/pedido2/view/__${pedido.id}__'}"
                      class="btn btn-info" role="button">Ver</a>
                 </td>
             </tr>

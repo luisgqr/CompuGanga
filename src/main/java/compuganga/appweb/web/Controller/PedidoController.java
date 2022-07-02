@@ -20,6 +20,7 @@ import java.util.List;
 @Controller
 public class PedidoController {
     static final String VIEW_INDEX ="pedido/index";
+    static final String FACTURA_INDEX="factura/index";
     final PedidoRepository pedidoData;
     final DetallePedidoRepository detallePedidoData;
     final ClienteRepository clienteData;
@@ -49,5 +50,13 @@ public class PedidoController {
         List<DetallePedido> listItems = detallePedidoData.findItemsByPedido(pedido);
         model.addAttribute("detalles",listItems);
         return "pedido/detalle";
+    }
+    @GetMapping("/pedido2/view/{id}")
+    public String createSubmitForm2(@PathVariable("id") int id, 
+            Model model ){
+        Pedido pedido = pedidoData.getOne(id);
+        List<DetallePedido> listItems = detallePedidoData.findItemsByPedido(pedido);
+        model.addAttribute("detalles",listItems);
+        return "/factura/index";
     }
 }

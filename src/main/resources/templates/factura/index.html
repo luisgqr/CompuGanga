@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Factura</title>
     <link rel="stylesheet" href="/estilos/estilo.css">
-    <link rel="stylesheet" href="/estilos/estilo2.css">
+    <link rel="stylesheet" href="/estilos/estilo2.css"> <!--../images/img152.png-->
 </head>
 <body>
         <div style="text-align:center;">
@@ -68,7 +68,36 @@
             </table>
             </td>
         </tr>
+        
         </table>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <center><table border="1" width="90%" bgcolor="white" style="margin: 0 auto;">
+            <thead class="thead-dark">
+              <tr>
+                <center><th>Id</th></center>
+                <center><th>Producto</th></center>
+                <center><th>Precio</th></center>
+                <center><th>Cantidad</th></center>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="detalle : ${detalles}">
+                  <center><td align="center" th:text="${detalle.id}"></td></center>
+                  <center><td align="center" th:text="${detalle.product.nombre}"></td></center>
+                  <center><td align="center" th:text="${detalle.precio}"></td></center>
+                  <center><td align="center" th:text="${detalle.cantidad}"></td></center>
+              </tr>
+            </tbody>
+          </table></center>
+          <center><table border="1" width="90%" bgcolor="white" style="margin: 0 auto;">
+          <tbody>
+              <tr th:each="detalle : ${detalles}">
+                  <th align="center">Monto TOTAL</th>
+                  <th align="center" th:text="${detalle.pedido.montoTotal}"></th>
+              </tr>
+          </tbody>
+        </table></center>
         <a href="/pedido/index" class="btn btn-primary">Regresar</a>
 
         <button onclick="imprimirPagina();">Imprimir</button>
