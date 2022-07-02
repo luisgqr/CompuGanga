@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+    <link rel="stylesheet" href="/estilos/estilo.css">
+    <link rel="stylesheet" href="/estilos/estilo2.css">
+</head>
+<body>
+        <div style="text-align:center;">
+        <table border="0" width="90%" bgcolor="white" style="margin: 0 auto;">
+        <tr>
+            <td><img src="../images/img152.png" width="70%" align="left"></td>
+            <td width="40%">
+                <table>
+                    <tr><td><h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp COMPUGANGA &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2></td></tr>
+                    <tr><td><h4>EL GIGANTE TECNOLÓGICA</h3></td></tr>
+                    <tr><td><h4>AV. BOLIVIA NRO 148 INT 553 - LIMA</h3></td></tr>
+                    <tr><td><h4>Telf: (01)478-9654</h3></td></tr>
+                    <tr><td><h4>Página Web: www.compuganga.com.pe</h3></td></tr>
+                </table>
+            </td>
+            <td>
+                <table border="1" align="right">
+                <tr><td><h2>&nbsp&nbsp&nbsp FACTURA ELECTRONICA &nbsp&nbsp&nbsp</h2></td></tr>
+                <tr><td bgcolor="#2EE7F6"><h3>RUC: 20762001191</h3></td></tr>
+                <tr><td><h3>F001 - 53948</h3></td></tr>
+                </table>
+            </td>
+        </tr>
+        </div>
+        <tr>
+            <td colspan="3" align="left"><h3>SUCURSAL TDA RAMPA</h3></td>	
+        <tr>
+        <tr>
+            <td colspan="3" align="left"><h3>Dirección: AV URUGUAY 191 C.C.CENTRO LIMA</h3></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+            <table border="0" bgcolor="white" width="100%">
+                <tr>
+                    <td align="left">
+                        SEÑOR(ES):
+                        <input type="text" size="40">
+                    </td>
+                    <td align="left">
+                        FECHA:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <input type="date" size="40">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        RUC:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <input type="text" size="40">
+                    </td>
+                    <td align="left">
+                        MONEDA:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSOLES
+                    </td>
+                </tr>				
+                <tr>
+                    <td align="left">
+                        DIRECCIÓN:
+                        <input type="text" size="40">
+                    </td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        <a href="/pedido/index" class="btn btn-primary">Regresar</a>
+
+        <button onclick="imprimirPagina();">Imprimir</button>
+
+        <script>
+            function imprimirPagina(){
+                window.print();
+            }
+        </script>
+</body>
+</html>

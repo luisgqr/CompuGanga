@@ -28,6 +28,7 @@
             <center><th>Id</th></center>
             <center><th>Fecha</th></center>
             <center><th>Total</th></center>
+            <center><th>Factura</th></center>
             </tr>
           </thead>
           <tbody>
@@ -39,6 +40,10 @@
                 <td th:text="${pedido.id}"></td>
                 <td th:text="${pedido.orderDate}"></td>
                 <td th:text="${pedido.montoTotal}"></td>
+                <td>
+                  <a href="/factura/index"
+                     class="btn btn-info" role="button">Ver</a>
+                </td>
             </tr>
           </tbody>
         </table>
