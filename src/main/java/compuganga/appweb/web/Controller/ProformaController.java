@@ -39,7 +39,18 @@ public class ProformaController {
         List<Proforma> listItems = this.proformaData.findItemsByUsuario(user);
         model.addAttribute("proformas",listItems);
         return VIEW_INDEX;
-    }    
+    }
+    
+    @PostMapping("/proforma/save1")
+    public String createSubmitForm2(Model model,
+    @Valid Proforma objProforma, BindingResult result){
+        Proforma prof = proformaData.getOne(objProforma.getId());
+        prof.setEntrega(objProforma.getEntrega());
+        proformaData.save(prof);
+        //model.addAttribute(MODEL_PRODUCTO, objProforma);
+        model.addAttribute("mensaje", "Opcion de entrega confirmado");
+        return "redirect:/proforma/index";
+    }  
 
     @PostMapping("/proforma/update")
     public String createSubmitForm(Model model, 

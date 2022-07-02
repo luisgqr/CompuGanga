@@ -16,13 +16,13 @@
  
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-10 mt-5 mb-5">
-        <center><h2>Carrito</h2><br/></center>
+      <div class="col-lg-10 mt-3 mb-5">
+        <center><h2 >Carrito</h2><br/></center>
         <CEnter><div class="col-3">
           <p>&nbsp;</p>         
         </div></CEnter> 
         <a href="/pago/create" class="btn btn-primary">Pagar</a>
-        <table id="example" class="table table-striped table-responsive table-light" style="width: 100%">
+        <table id="example" class="table table-striped table-responsive table-light" >
           <thead class="thead-dark">
             <tr>
               <th>Id</th>
@@ -45,11 +45,51 @@
                   <input type="hidden" name="id" th:value="${proforma.id}"/>
                   <button th:with="text='Actualizar'" class="btn btn-warning" type="submit" th:text="${text}"/>
                 </form>
-              </td>              
+              </td>
+              <form th:object="${proforma}" th:action="@{/proforma/save1}" method="post">
+                <div class="form-group row">
+                  <div class="col-md-6 mt-md-0 mt-3">
+                  <label for="entrega">Tipo de entrega</label>
+                  <input type="text" class="form-control" name="entrega" required th:value="${proforma.entrega}" />
+                  <input type="hidden" name="id" th:value="${proforma.id}"/>
+                  <button th:with="text='Confirmar'" class="btn btn-warning" type="submit" th:text="${text}"/>
+                  </div>
+                </div>
+                </form>
+                <p th:text="${mensaje}" />                            
             </tr>
           </tbody>
         </table>
         
+        <!--
+        <div class="modal-dialog">
+        <div class="modal-content">
+          <div  class="col-sm-12 mt-2">
+            <div class="h3">Tipo de entrega</div>
+            <div class="col-sm-2"></div>
+            <form th:object="${proforma}" th:action="@{/proforma/index}" method="post">
+            <div class="form-group row">
+              <div class="col-sm-5"></div>
+              <div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="entregaR" name="entrega" class="custom-control-input"
+                  >      value="Recoger" th:field="*{gender}"
+                  <label class="custom-control-label" for="entregaR">Recoger : Puedes venir a recoger tus productos</label>
+                </div>
+              </div>
+              <div >
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="entregaD" name="entregaD" class="custom-control-input"
+                  >       value="Delivery"  th:field="*{gender}"
+                  <label class="custom-control-label" for="entregaD">Delivery : Dejanos tus datos para entregar tus productos</label>
+                </div>
+              </div>
+            </div>
+          </form>   
+          </div>  
+        </div> 
+       </div>
+      -->
       </div>
       
     </div>
