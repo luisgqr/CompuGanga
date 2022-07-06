@@ -58,12 +58,8 @@ public class PagoController {
         if(listItems.isEmpty()){
             model.addAttribute("mensaje", "Carrito Vacio");
             return "proforma/index";
-        }
-        Proforma pro=new Proforma(); 
-        //pro.getEntrega()=="Recoger"
-        Integer dely=5;     
-        if(pro.getEntrega()=="Recoger"){
-            BigDecimal montoTotal = listItems.stream().
+        }       
+        BigDecimal montoTotal = listItems.stream().
             map(n -> n.getPrecio().multiply(
                         new BigDecimal(n.getCantidad()))).
                     reduce(BigDecimal.ZERO, BigDecimal::add);
@@ -74,30 +70,6 @@ public class PagoController {
         pago.setNombreTarjeta(cliente.getNombre());
         model.addAttribute(MODEL_VIEW, pago);
         return VIEW_INDEX;
-        }else{
-            BigDecimal montoTotal = listItems.stream().
-            map(n -> n.getPrecio().multiply(
-                        new BigDecimal(n.getCantidad())).add(new BigDecimal(dely))).
-                    reduce(BigDecimal.ZERO, BigDecimal::add);
-        Pago pago = new Pago();
-        pago.setPaymentDate(new Date());
-        pago.setMontoTotal(montoTotal);
-        pago.setClienteId(cliente.getId());
-        pago.setNombreTarjeta(cliente.getNombre());
-        model.addAttribute(MODEL_VIEW, pago);
-        return VIEW_INDEX;
-        }
-        //BigDecimal montoTotal = listItems.stream().
-        //    map(n -> n.getPrecio().multiply(
-        //                new BigDecimal(n.getCantidad()))).
-        //            reduce(BigDecimal.ZERO, BigDecimal::add);
-        //Pago pago = new Pago();
-        //pago.setPaymentDate(new Date());
-        //pago.setMontoTotal(montoTotal);
-        //pago.setClienteId(cliente.getId());
-        //pago.setNombreTarjeta(cliente.getNombre());
-        //model.addAttribute(MODEL_VIEW, pago);
-        //return VIEW_INDEX;
     }   
 
     @PostMapping("/pago/create")

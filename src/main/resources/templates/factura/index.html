@@ -7,12 +7,19 @@
     <title>Factura</title>
     <link rel="stylesheet" href="/estilos/estilo.css">
     <link rel="stylesheet" href="/estilos/estilo2.css"> <!--../images/img152.png-->
+
+    <style>
+        .form-control-lg{
+          outline: none;
+          
+        }
+      </style>
 </head>
 <body>
         <div style="text-align:center;">
         <table border="0" width="90%" bgcolor="white" style="margin: 0 auto;">
         <tr>
-            <td><img src="../images/img152.png" width="70%" align="left"></td>
+            <td><img src="../../images/img152.png" width="70%" align="left"></td>
             <td width="40%">
                 <table>
                     <tr><td><h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp COMPUGANGA &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2></td></tr>
@@ -41,29 +48,35 @@
             <td colspan="3">
             <table border="0" bgcolor="white" width="100%">
                 <tr>
+                    <form th:object="${pago}" th:action="@{/pedido2/view/{id}}" method="post">
                     <td align="left">
-                        SEÑOR(ES):
-                        <input type="text" size="40">
+                            SEÑOR(ES):                         
+                            <input type="text" class="sinborde" th:field="*{nombreTarjeta}" size="40" readonly>
                     </td>
+                    </form>
+                    <form th:object="${pedido}" th:action="@{/pedido2/view/{id}}" method="post">
                     <td align="left">
                         FECHA:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="date" size="40">
+                        <input type="text" class="sinborde" th:field="*{orderDate}" size="18" readonly>
                     </td>
+                    </form>
                 </tr>
                 <tr>
                     <td align="left">
                         RUC:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="text" size="40">
+                        <input id="RUC" type="text" class="form-control" size="40" required>
                     </td>
                     <td align="left">
                         MONEDA:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSOLES
                     </td>
                 </tr>				
                 <tr>
+                    <form th:object="${client}" th:action="@{/pedido2/view/{id}}" method="post">
                     <td align="left">
                         DIRECCIÓN:
-                        <input type="text" size="40">
+                        <input type="text" class="sinborde" th:field="*{direccion}" size="40" readonly>
                     </td>
+                    </form>
                 </tr>
             </table>
             </td>
@@ -90,22 +103,32 @@
               </tr>
             </tbody>
           </table></center>
-          <center><table border="1" width="90%" bgcolor="white" style="margin: 0 auto;">
-          <tbody>
-              <tr th:each="detalle : ${detalles}">
-                  <th align="center">Monto TOTAL</th>
-                  <th align="center" th:text="${detalle.pedido.montoTotal}"></th>
-              </tr>
-          </tbody>
-        </table></center>
+          <p>&nbsp;</p>
+          <form style="margin: 0 auto;" th:object="${pedido}" th:action="@{/pedido2/view/{id}}" method="post">
+            <label for="montoTotal">Monto Total</label>                   
+            <input type="text" size="8" style="text-align: center; " class="form-control-lg" th:field="*{montoTotal}" readonly id="currency" data-thousands="," data-decimal="." />
+            
+        </form>
+          <p>&nbsp;</p>
         <a href="/pedido/index" class="btn btn-primary">Regresar</a>
 
         <button onclick="imprimirPagina();">Imprimir</button>
 
         <script>
-            function imprimirPagina(){
-                window.print();
-            }
+            window.alert('Ingrese su RUC para la FACTURA');
+        </script>
+        <script>
+            var R=$('RUC').val();
+      
+      function imprimirPagina(){
+          if(R===''){
+              alert('Debe ingresar su RUC');
+              return false;
+          }else{
+              window.print();  
+          }
+          
+      }
         </script>
 </body>
 </html>

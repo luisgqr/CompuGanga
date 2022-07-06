@@ -13,15 +13,12 @@
 </head>
 
 <body>
- 
-  <div class="container-fluid">
+  <center>
+  <div class="container">
     <div class="row">
       <div class="col-lg-10 mt-3 mb-5">
-        <center><h2 >Carrito</h2><br/></center>
-        <CEnter><div class="col-3">
-          <p>&nbsp;</p>         
-        </div></CEnter> 
-        <table id="example" class="table table-striped table-responsive table-light" >
+        <center><h2 class="text-white" >Carrito</h2><br/></center>
+        <table id="example" class="table table-striped table-light" >
           <thead class="thead-dark">
             <tr>
               <th>Id</th>
@@ -45,81 +42,74 @@
                   <button th:with="text='Actualizar'" class="btn btn-warning" type="submit" th:text="${text}"/>
                 </form>
               </td> 
-              <td><button onclick="deleteRow(this)">Borrar</button></td>
-              <!--<form th:object="${proforma}" th:action="@{/proforma/save1}" method="post">
-                <div class="form-group row">
-                  <div class="col-md-6 mt-md-0 mt-3">
-                  <label for="entrega">Tipo de entrega</label>
-                  <input type="text" class="form-control" name="entrega" required th:value="${proforma.entrega}" />
-                  <input type="hidden" name="id" th:value="${proforma.id}"/>
-                  <button th:with="text='Confirmar'" class="btn btn-warning" type="submit" th:text="${text}"/>
-                  </div>
-                </div>
-                </form>
-                <p th:text="${mensaje}" /> -->                         
+              <td><button onclick="deleteRow(this)">Borrar</button></td>                   
             </tr>
           </tbody>
         </table>
-        <div class="form-group row">
-          <div class="col-sm-4"></div>
-          <div class="col-md-6 mt-md-0 mt-3">
-            <label class="text-white bg-dark" for="entrega">Tipo de entrega</label>
-            <select id="categoria" placeholder="Categoría" autocomplete="off" class="form-control" />
-                  <option value="-">Elegir</option>
-                    <option value="Recoger">Recoger</option>
-                    <option value="Delivery">Delivery</option>
-                  </select>
-                  <div class="form-group row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-md-4 mt-md-0 mt-3">
-                      <button th:with="text='Confirmar'" class="btn btn-warning" type="submit" th:text="${text}"/>
-                    </div>
-                  </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-4"></div>
-          <div class="col-md-6 mt-md-0 mt-3">
-            <a href="/pago/create" class="btn btn-primary">Pagar</a>
-          </div>
-        </div>
-        <!--
-        <div class="modal-dialog">
+
+      <div class="modal-dialog">
         <div class="modal-content">
-          <div  class="col-sm-12 mt-2">
-            <div class="h3">Tipo de entrega</div>
-            <div class="col-sm-2"></div>
-            <form th:object="${proforma}" th:action="@{/proforma/index}" method="post">
-            <div class="form-group row">
-              <div class="col-sm-5"></div>
-              <div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="entregaR" name="entrega" class="custom-control-input"
-                  >      value="Recoger" th:field="*{gender}"
-                  <label class="custom-control-label" for="entregaR">Recoger : Puedes venir a recoger tus productos</label>
-                </div>
-              </div>
-              <div >
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="entregaD" name="entregaD" class="custom-control-input"
-                  >       value="Delivery"  th:field="*{gender}"
-                  <label class="custom-control-label" for="entregaD">Delivery : Dejanos tus datos para entregar tus productos</label>
-                </div>
-              </div>
-            </div>
-          </form>   
-          </div>  
-        </div> 
-       </div>
-      -->
-      </div>     
+          <CEnter>
+            <img src="../images/entrega.jpg"><h2>Tipo de entrega</h2>
+          </CEnter>
+          <center>
+      <form action="index.php" method="post">
+        <div class="col-md-6 mt-md-0 mt-3">
+          <label for="entrega">Entrega</label>
+        </div>
+        <div class="col-md-6 mt-md-0 mt-3">
+        <select id="status" name="status" class="form-control" onChange="mostrar(this.value);">
+            <option value="-">Elegir</option>
+            <option value="delivery">Delivery</option>
+            <option value="recoger">Recoger</option>
+         </select>
+        </div>
+        <p>&nbsp;</p> 
+      </form>
+      </center>
+      <div id="delivery" style="display: none;">
+        
+        <div class="col-sm-12">
+        <p>Ingresa una nueva dirección de destino y confirme, u omita esta opcion para enviar a su direccion actual y presione pagar</p>
+        </div>
+        <center>
+        <form th:object="${client}" th:action="@{/proforma/edit}" method="post"> 
+          <div class="col-md-10 mt-md-0 mt-3">          
+            <label for="direccion">Dirección</label>
+            <input style="text-align:center" class="form-control" type="text" name="direccion" th:field="*{direccion}" />
+            <p>&nbsp;</p> 
+            <button  th:with="text='Confirmar'" class="btn btn-warning" type="submit" th:text="${text}"/>
+          </div>          
+          <p>&nbsp;</p> 
+        </form>
+        </center>
+     </div>
+     </div>
+     </div>
+     
+     <div class="form-group row">
+      <div class="col-sm-4"></div>
+      <div class="col-md-12 mt-md-0 mt-3">
+        <center><a href="/pago/create" class="btn btn-primary">Pagar</a></center>
+      </div>
+     </div>
+    
+     </div>
     </div>
   </div>
-  <script>
-    function deleteRow(row){
-      var d = row.parentNode.parentNode.rowIndex;
-      document.getElementById('example').deleteRow(d);
-   }
+  </center>
+
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript">
+  function mostrar(id) {
+    if (id == "delivery") {
+        $("#delivery").show();
+    }
+
+    if (id == "recoger") {
+        $("#delivery").hide();
+    }
+  }
   </script>
 
 </body>
