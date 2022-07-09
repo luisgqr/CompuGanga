@@ -34,7 +34,6 @@ public class Proforma {
     private Usuario user;
     private BigDecimal precio;
     private Integer cantidad;
-    private String entrega;//
     @Builder.Default
     private String status="PENDING";
 }

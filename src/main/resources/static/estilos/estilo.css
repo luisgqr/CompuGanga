@@ -58,6 +58,7 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	
 }
 
 body{
@@ -102,6 +103,12 @@ header{
 	transition: all .3s;
 }
 
+.menu > li > svg{
+	width: 28px;
+	height: 28px;
+	align-content: center;
+}
+
 .submenu{
 	position: absolute;
 	background: #8853F3;  /* Color del desplegable */
@@ -111,6 +118,7 @@ header{
 	transition: opacity 1.5s;
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
+	z-index:999
 }
 
 .submenu li a{
@@ -119,10 +127,12 @@ header{
 	color: #fff;
 	font-family: 'Open sans';
 	text-decoration: none;
+	
 }
 
 
 .menu li:hover .submenu{
 	visibility: visible;
 	opacity: 1;
+	
 }

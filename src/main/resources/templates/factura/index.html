@@ -8,18 +8,13 @@
     <link rel="stylesheet" href="/estilos/estilo.css">
     <link rel="stylesheet" href="/estilos/estilo2.css"> <!--../images/img152.png-->
 
-    <style>
-        .form-control-lg{
-          outline: none;
-          
-        }
-      </style>
 </head>
 <body>
-        <div style="text-align:center;">
+    <div id="imprimible" style="text-align:center;">
+        
         <table border="0" width="90%" bgcolor="white" style="margin: 0 auto;">
         <tr>
-            <td><img src="../../images/img152.png" width="70%" align="left"></td>
+            <td><img src="../../images/img152.png" width="90%" height="60%" align="left"></td>
             <td width="40%">
                 <table>
                     <tr><td><h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp COMPUGANGA &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2></td></tr>
@@ -37,7 +32,7 @@
                 </table>
             </td>
         </tr>
-        </div>
+        
         <tr>
             <td colspan="3" align="left"><h3>SUCURSAL TDA RAMPA</h3></td>	
         <tr>
@@ -50,8 +45,10 @@
                 <tr>
                     <form th:object="${pago}" th:action="@{/pedido2/view/{id}}" method="post">
                     <td align="left">
+                            
                             SEÑOR(ES):                         
                             <input type="text" class="sinborde" th:field="*{nombreTarjeta}" size="40" readonly>
+                            
                     </td>
                     </form>
                     <form th:object="${pedido}" th:action="@{/pedido2/view/{id}}" method="post">
@@ -60,11 +57,12 @@
                         <input type="text" class="sinborde" th:field="*{orderDate}" size="18" readonly>
                     </td>
                     </form>
+                    
                 </tr>
                 <tr>
                     <td align="left">
                         RUC:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input id="RUC" type="text" class="form-control" size="40" required>
+                        <input id="RUC" type="text" class="sinborde" size="40" required>
                     </td>
                     <td align="left">
                         MONEDA:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSOLES
@@ -106,29 +104,30 @@
           <p>&nbsp;</p>
           <form style="margin: 0 auto;" th:object="${pedido}" th:action="@{/pedido2/view/{id}}" method="post">
             <label for="montoTotal">Monto Total</label>                   
-            <input type="text" size="8" style="text-align: center; " class="form-control-lg" th:field="*{montoTotal}" readonly id="currency" data-thousands="," data-decimal="." />
+            <b><input type="text" style="text-align: center;" class="sinborde" th:field="*{montoTotal}" readonly id="currency" data-thousands="," data-decimal="." /></b>
             
         </form>
+    </div>
           <p>&nbsp;</p>
-        <a href="/pedido/index" class="btn btn-primary">Regresar</a>
+          <center>
+        <button><a href="/pedido/index">Regresar</a></button>
 
-        <button onclick="imprimirPagina();">Imprimir</button>
+        <button id="imprimir">Imprimir</button></center>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.2/jQuery.print.min.js" integrity="sha512-t3XNbzH2GEXeT9juLjifw/5ejswnjWWMMDxsdCg4+MmvrM+MwqGhxlWeFJ53xN/SBHPDnW0gXYvBx/afZZfGMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script>
             window.alert('Ingrese su RUC para la FACTURA');
         </script>
+
         <script>
-            var R=$('RUC').val();
-      
-      function imprimirPagina(){
-          if(R===''){
-              alert('Debe ingresar su RUC');
-              return false;
-          }else{
-              window.print();  
-          }
-          
-      }
+            $(document).ready(()=>{
+                $('#imprimir').click(function(){
+                    $.print('#imprimible');
+                });
+            });
         </script>
+        
 </body>
 </html>

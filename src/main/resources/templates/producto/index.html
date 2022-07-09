@@ -17,12 +17,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mt-5 mb-5">
-        <center><h2>Productos</h2><br/></center>
+        <center><h2 class="text-white">Productos</h2><br/></center>
         
-        <a href="/producto/create">Crear Producto</a>
+        <a href="/producto/create" class="btn btn-warning" role="button">Crear Producto</a>
         <table id="example" class="table table-bordered table-striped table-light" style="width: 100%">
           <thead class="thead-dark" style="width: 100%">
-            <tr>
+            <tr class="text-center">
               <th>#</th>
               <th>Nombre</th>
               <th>Precio</th>
@@ -31,13 +31,13 @@
           </thead>
           <tbody>
             <tr th:each="producto : ${productos}">
-              <td>
+              <td align="center">
                 <a th:href="@{'/producto/edit/__${producto.id}__'}"
   			           class="btn btn-info" role="button">Editar</a>
               </td>
-              <td th:text="${producto.nombre}"></td>
-              <td th:text="${producto.precio}"></td>
-              <td th:text="${producto.image}"></td>
+              <td align="center" th:text="${producto.nombre}"></td>
+              <td align="center" th:text="${producto.precio}"></td>
+              <td align="center" th:text="${producto.image}"></td>
             </tr>
           </tbody>
         </table>

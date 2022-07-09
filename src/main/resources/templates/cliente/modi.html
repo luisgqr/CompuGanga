@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" 
+    th:replace="~{fragments/layout :: layout (~{::body},'client')}">
+
+<body>
+ 
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="col-sm-12 mt-5">
+            <center><div class="col-12">
+              <h1>Información</h1>
+            </div></center>
+            <CEnter><div class="col-12">
+              <p>&nbsp;</p>         
+            </div></CEnter>
+            <center><form th:object="${client}" th:action="@{/cliente/modi}" method="post">
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="nombre">Nombres</label>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                <input type="text" class="form-control" pattern="[A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16}" required th:field="*{nombre}" />
+              </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="DNI">DNI</label> <!--col-sm-2  [a-zA-Z]+\s[a-zA-Z]+\s[a-zA-Z]+-->
+                </div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                  <input type="text" class="form-control" pattern="[0-9]+" maxlength="8" required th:field="*{DNI}" />
+                </div>
+              </div>              
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">                  
+                  <label for="correo">Email</label>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                  <input type="text" class="form-control" data-inputmask="'alias': 'email'"
+                  autocomplete="off" required th:field="*{correo}" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="telefono">Teléfono</label>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                  <input type="text" class="form-control" data-inputmask="'mask': '(999) 999-9999'" required th:field="*{telefono}" />
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="direccion">Dirección</label>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <input type="text" class="form-control" required th:field="*{direccion}" />
+                  </div>                
+              </div>                          
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="user.userID">Usuario</label>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                  <input type="text" class="form-control" required th:field="*{user.userID}" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3">
+                  <label for="user.password">Contraseña</label>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                  <input type="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}" required th:field="*{user.password}" />
+                </div>
+              </div>              
+              <div class="form-group row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-2">
+                  <button th:with="text='Modificar'" class="btn btn-warning btn-lg" type="submit" th:text="${text}"/>
+                </div>
+              </div>
+            </form></center>
+            <p th:text="${mensaje}" />
+          </div>
+        </div>
+      </div>
+    
+      <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+      <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+      <script th:src="@{/webjars/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
+      <script th:src="@{/webjars/jquery.inputmask/jquery.inputmask.min.js}"></script>    
+  
+      <script>
+        $('.input-group.date').datepicker({
+          autoclose: true,
+          todayHighlight: true
+        });
+      </script>
+      <script>
+        $(":input").inputmask();
+      </script>
+</body>
+
+</html>

@@ -17,33 +17,29 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mt-5 mb-5">
-        <center><h2>Pedido</h2><br/></center>
-        <CEnter><div class="col-12">
-          <p>&nbsp;</p>         
-        </div></CEnter> 
+        <center><h2 class="text-white">Pedidos</h2></center>
+       
         
         <table id="example" class="table table-bordered table-striped  table-light" style="width: 100%">
           <thead class="thead-dark">
-            <tr>
-            <center><th>Detalle</th></center>
-            <center><th>Id</th></center>
-            <center><th>Fecha</th></center>
-            <center><th>Total</th></center>
-            <center><th>Factura</th></center>
+            <tr class="text-center">
+            <th>Detalle</th>
+            <th>Id</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Factura</th>
             </tr>
           </thead>
           <tbody>
             <tr th:each="pedido : ${pedidos}">
-                <td>
+                <td align="center">
                   <a th:href="@{'/pedido/view/__${pedido.id}__'}"
                      class="btn btn-info" role="button">Ver</a>
                 </td>
-                <td th:text="${pedido.id}"></td>
-                <td th:text="${pedido.orderDate}"></td>
-                <td th:text="${pedido.montoTotal}"></td>
-                <td>
-                  <!--<a href="/factura/index"
-                     class="btn btn-info" role="button">Ver</a>-->
+                <td align="center" th:text="${pedido.id}"></td>
+                <td align="center" th:text="${pedido.orderDate}"></td>
+                <td align="center" th:text="${pedido.montoTotal}"></td>
+                <td align="center">
                   <a th:href="@{'/pedido2/view/__${pedido.id}__'}"
                      class="btn btn-info" role="button">Ver</a>
                 </td>

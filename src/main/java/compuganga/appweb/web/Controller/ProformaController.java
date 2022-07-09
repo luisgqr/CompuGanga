@@ -9,8 +9,10 @@ import org.springframework.validation.BindingResult;
 import compuganga.appweb.web.Model.Proforma;
 import compuganga.appweb.web.Model.Usuario;
 import compuganga.appweb.web.Model.Cliente;
+import compuganga.appweb.web.Model.Entrega;
 import compuganga.appweb.web.Repository.ProformaRepository;
 import compuganga.appweb.web.Repository.ClienteRepository;
+import compuganga.appweb.web.Repository.EntregaRepository;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -22,13 +24,16 @@ public class ProformaController {
     static final String VIEW_INDEX ="proforma/index";
     static String MODEL_PRODUCTO="proforma";
     static String MODEL_VIEW3="client";
+    static String MODEL_VIEW4="entrega";
     final ProformaRepository proformaData;
     final ClienteRepository clienteData;
+    final EntregaRepository entregaData;
     
     public ProformaController(ProformaRepository proformaData,
-        ClienteRepository clienteData){
+        ClienteRepository clienteData, EntregaRepository entregaData){
         this.proformaData = proformaData;
         this.clienteData = clienteData;
+        this.entregaData = entregaData;
     }      
 
     public static String getMODEL_PRODUCTO() {
@@ -51,7 +56,7 @@ public class ProformaController {
        
     @PostMapping("/proforma/edit")
 	public String createSubmitForm(Model model, HttpSession session, 
-			@Valid Cliente objCliente,
+			@Valid Cliente objCliente, @Valid Entrega objEntrega,
 			BindingResult bindingResult){
             Usuario user = (Usuario)session.getAttribute("user");
 		    Cliente client = this.clienteData.findByUsuario(user);
@@ -59,6 +64,13 @@ public class ProformaController {
             clienteData.save(client);
             return "redirect:/proforma/index";
 	}
+    @PostMapping("/proforma/delete")
+    public String createSubmitForm2(Model model,
+    @Valid Proforma objProforma, BindingResult result ){
+        Proforma pro = proformaData.getOne(objProforma.getId());
+        proformaData.delete(pro);
+        return "redirect:/proforma/index";
+    }
 
     @PostMapping("/proforma/update")
     public String createSubmitForm(Model model, 
