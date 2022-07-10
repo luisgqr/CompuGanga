@@ -39,6 +39,7 @@ public class UsuarioController {
             model.addAttribute(MODEL_MESSAGE, "No se ha podido loguear");
         }else{
             Optional<Usuario> userDB = this.usuariosData.findById(objUser.getUserID());
+
             if(userDB.isPresent()){
                 if(userDB.get().getPassword().equals(objUser.getPassword())){
                     model.addAttribute(MODEL_CONTACT,userDB.get());
@@ -53,6 +54,7 @@ public class UsuarioController {
             }
         }
         return page;
+        
     }
 
     @GetMapping("/usuario/logout")

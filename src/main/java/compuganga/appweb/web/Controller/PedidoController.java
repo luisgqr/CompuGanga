@@ -68,20 +68,7 @@ public class PedidoController {
     public String createSubmitForm2(@PathVariable("id") int id, 
             Model model, HttpSession session ){
         Usuario user = (Usuario)session.getAttribute("user");
-
         Pedido pedido = pedidoData.getOne(id);
-        pedido.getMontoTotal();
-        pedido.getOrderDate();
-        model.addAttribute(MODEL_VIEW, pedido);
-
-        Pago pago = pagoData.getOne(id);
-        pago.getNombreTarjeta();
-        model.addAttribute(MODEL_VIEW2, pago);
-
-        Cliente client = clienteData.findByUsuario(user);
-        client.getDireccion();
-        model.addAttribute(MODEL_VIEW3, client);
-
         List<DetallePedido> listItems = detallePedidoData.findItemsByPedido(pedido);
         model.addAttribute("detalles",listItems);
         return FACTURA_INDEX;

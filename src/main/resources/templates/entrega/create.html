@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" 
+    th:replace="~{fragments/layout :: layout (~{::body},'entrega')}">
+
+<head>
+  <title>Pedido</title>
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css} " />
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <CEnter>
+        <img src="../images/entrega.jpg">
+      </CEnter>
+      <center>
+  <form action="index.php" method="post">
+    <div class="col-md-6 mt-md-0 mt-3">
+      <label for="entrega">Entrega</label>
+    </div>
+    <div class="col-md-6 mt-md-0 mt-3">
+    <select id="status" name="status" class="form-control" onChange="mostrar(this.value);">
+        <option value="-">Elegir</option>
+        <option value="delivery">Delivery</option>
+        <option value="recoger">Recoger</option>
+     </select>
+    </div>
+    <p>&nbsp;</p> 
+  </form>
+  </center>
+  <div id="delivery" style="display: none;">
+    
+    <div class="col-sm-12">
+    <p>Ingresa una nueva dirección de destino y confirme, u omita esta opcion para enviar a su direccion actual y presione pagar</p>
+    </div>
+    <center>
+    <form th:object="${client}" th:action="@{/proforma/edit}" method="post"> 
+      <div class="col-md-10 mt-md-0 mt-3">          
+        <label for="direccion">Dirección</label>
+        <input style="text-align:center" class="form-control" type="text" name="direccion" th:field="*{direccion}" />
+        <p>&nbsp;</p> 
+        <button  th:with="text='Confirmar'" class="btn btn-warning" type="submit" th:text="${text}"/>
+      </div>          
+      <p>&nbsp;</p> 
+    </form>
+    </center>
+  </div>
+  <div id="recoger" style="display: none;">       
+    <div class="col-sm-12">
+    <p>Elegir sede</p>
+    </div>  
+    <center>   
+      <div class="col-md-6 mt-md-0 mt-3">
+      <select  name="status" class="form-control">
+        <option value="-">Elegir</option>
+        <option value="sede1">Sede 1</option>
+        <option value="sede2">Sede 2</option>
+        <option value="sede3">Sede 3</option>
+     </select>
+     </div>
+     <p>&nbsp;</p> 
+    </center> 
+    </div>
+ </div>
+ </div>
+</body>
+</html>
