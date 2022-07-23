@@ -54,7 +54,9 @@ public class ProformaController {
 			@Valid Cliente objCliente,
 			BindingResult bindingResult){
             Usuario user = (Usuario)session.getAttribute("user");
-		    
+		    Cliente client = this.clienteData.findByUsuario(user);
+            client.setDireccion(objCliente.getDireccion());
+            clienteData.save(client);
             return "redirect:/proforma/index";
 	}
     @PostMapping("/proforma/delete")

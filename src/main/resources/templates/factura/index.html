@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <div style="text-align:center;">
+    <div id="imprimible" style="text-align:center;">
         
         <table border="0" width="90%" bgcolor="white" style="margin: 0 auto;">
         <tr>
@@ -47,14 +47,14 @@
                     <td align="left">
                             
                             SEÑOR(ES):                         
-                            <input type="text" class="sinborde" size="40" readonly>
+                            <input type="text" class="sinborde" th:field="*{nombreTarjeta}" size="40" readonly>
                             
                     </td>
                     </form>
                     <form th:object="${pedido}" th:action="@{/pedido2/view/{id}}" method="post">
                     <td align="left">
                         FECHA:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="text" class="sinborde"  size="18" readonly>
+                        <input type="text" class="sinborde" th:field="*{orderDate}" size="18" readonly>
                     </td>
                     </form>
                     
@@ -72,7 +72,7 @@
                     <form th:object="${client}" th:action="@{/pedido2/view/{id}}" method="post">
                     <td align="left">
                         DIRECCIÓN:
-                        <input type="text" class="sinborde"  size="40" readonly>
+                        <input type="text" class="sinborde" th:field="*{direccion}" size="40" readonly>
                     </td>
                     </form>
                 </tr>
@@ -104,7 +104,7 @@
           <p>&nbsp;</p>
           <form style="margin: 0 auto;" th:object="${pedido}" th:action="@{/pedido2/view/{id}}" method="post">
             <label for="montoTotal">Monto Total</label>                   
-            <b><input type="text" style="text-align: center;" class="sinborde"  readonly id="currency" data-thousands="," data-decimal="." /></b>
+            <b><input type="text" style="text-align: center;" class="sinborde" th:field="*{montoTotal}" readonly id="currency" data-thousands="," data-decimal="." /></b>
             
         </form>
     </div>
@@ -112,20 +112,21 @@
           <center>
         <button><a href="/pedido/index">Regresar</a></button>
 
-        <button id="imprimir" onclick="imprimir();">Imprimir</button></center>
+        <button id="imprimir">Imprimir</button></center>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.2/jQuery.print.min.js" integrity="sha512-t3XNbzH2GEXeT9juLjifw/5ejswnjWWMMDxsdCg4+MmvrM+MwqGhxlWeFJ53xN/SBHPDnW0gXYvBx/afZZfGMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script>
             window.alert('Ingrese su RUC para la FACTURA');
-            function imprimir(){
-                window.print();
-            }
         </script>
 
         <script>
-            
+            $(document).ready(()=>{
+                $('#imprimir').click(function(){
+                    $.print('#imprimible');
+                });
+            });
         </script>
         
 </body>
